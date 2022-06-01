@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import {useSelector} from 'react-redux';
 import ElementOfCartoon from './ElementOfCartoon';
 import {Context} from '../../redux/Context';
-import {FlexedView} from '../../styles';
+import {FlexedView, TextElementOfMenu} from '../../styles';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
@@ -11,6 +11,10 @@ export const MainScreen = ({navigation}) => {
   const setLanguage = () => {
     setContext(!context);
   };
+  const LoginScreenF = () => {
+    navigation.navigate('LoginPage');
+  };
+
   let empty;
   if (state.length === 0) {
     empty = false;
@@ -49,9 +53,24 @@ export const MainScreen = ({navigation}) => {
             )}
           </View>
         )}
-        <Pressable onPress={setLanguage}>
-          {context ? <Text>Change Language</Text> : <Text>Сменить язык</Text>}
-        </Pressable>
+        <FlexedView marginT="20px" marginL="20px" marginR="20px">
+          <Pressable onPress={setLanguage}>
+            {context ? (
+              <TextElementOfMenu paddingT="5px">
+                Change Language
+              </TextElementOfMenu>
+            ) : (
+              <TextElementOfMenu paddingT="5px">Сменить язык</TextElementOfMenu>
+            )}
+          </Pressable>
+          <Pressable onPress={LoginScreenF}>
+            {context ? (
+              <TextElementOfMenu paddingT="15px">Login</TextElementOfMenu>
+            ) : (
+              <TextElementOfMenu paddingT="15px">Логин</TextElementOfMenu>
+            )}
+          </Pressable>
+        </FlexedView>
       </ScrollView>
     </SafeAreaView>
   );

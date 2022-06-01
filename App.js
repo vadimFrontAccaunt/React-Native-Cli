@@ -13,6 +13,7 @@ import {
 import {Provider} from 'react-redux';
 import {Context} from './redux/Context';
 import {store} from './redux/store';
+import LoginScreen from './src/LoginScreen/LoginScreen';
 import {MainScreen} from './src/MainScreen/MainScreen';
 import {ThecondScreen} from './src/MainScreen/ThecondScreen';
 
@@ -27,6 +28,7 @@ const App = () => {
           <Stack.Navigator>
             <Stack.Screen name="MainPage" component={MainScreen} />
             <Stack.Screen name="ThecondPage" component={ThecondScreen} />
+            <Stack.Screen name="LoginPage" component={LoginScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </Context.Provider>

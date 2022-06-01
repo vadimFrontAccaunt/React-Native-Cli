@@ -37,7 +37,7 @@ const ElementOfCartoon = ({cartonNumber, count, navigation}) => {
               backgroundColor="red"
               width="80px"
               height="50px"
-              paddingT="15px">
+              paddingT="12px">
               Delete
             </BorderedText>
           ) : (

@@ -54,7 +54,7 @@ const ThecondScreenElement = ({
               backgroundColor="red"
               width="80px"
               height="50px"
-              paddingT="15px">
+              paddingT="12px">
               Delete
             </BorderedText>
           </Pressable>

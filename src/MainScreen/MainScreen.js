@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux';
 import ElementOfCartoon from './ElementOfCartoon';
 import {Context} from '../../redux/Context';
 import {FlexedView, TextElementOfMenu} from '../../styles';
+import Chart from '../ChartBar/Chart';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
@@ -53,6 +54,7 @@ export const MainScreen = ({navigation}) => {
             )}
           </View>
         )}
+        <Chart />
         <FlexedView marginT="20px" marginL="20px" marginR="20px">
           <Pressable onPress={setLanguage}>
             {context ? (

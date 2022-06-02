@@ -30,6 +30,9 @@ export const MainScreen = ({navigation}) => {
     setModalWindow(!modalWindow);
   };
 
+  const showCamera = () => {
+    navigation.navigate('Camera');
+  };
   const showBrowser = () => {
     navigation.navigate('Browser');
   };
@@ -121,6 +124,17 @@ export const MainScreen = ({navigation}) => {
             ) : (
               <TextElementOfMenu marginT="30px" paddingT="15px">
                 Браузер
+              </TextElementOfMenu>
+            )}
+          </Pressable>
+          <Pressable onPress={showCamera}>
+            {context ? (
+              <TextElementOfMenu marginT="30px" paddingT="15px">
+                Camera
+              </TextElementOfMenu>
+            ) : (
+              <TextElementOfMenu marginT="30px" paddingT="15px">
+                Камера
               </TextElementOfMenu>
             )}
           </Pressable>

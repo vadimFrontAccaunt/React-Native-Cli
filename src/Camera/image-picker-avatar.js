@@ -1,60 +1,20 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Image,
-  View,
-  ImageBackground,
-} from 'react-native';
+import {StyleSheet, TouchableOpacity, Image, View} from 'react-native';
 
 import {images} from '../../assets';
+import {AbsoluteTouchableOpacity, FlexedView, StyledImage} from '../../styles';
 
-export function ImagePickerAvatar({uri, onPress}) {
+export const ImagePickerAvatar = ({uri, onPress}) => {
   return (
-    <View style={styles.avatar}>
-      <Image style={styles.avatarImage} source={uri ? {uri} : images.avatar} />
-      <TouchableOpacity style={styles.addButton} onPress={onPress}>
-        <Image style={styles.addButtonIcon} source={images.addButton} />
-      </TouchableOpacity>
-      <Text style={styles.usernameText}>Gapur Kassym</Text>
-    </View>
+    <FlexedView marginT="40%" justifyContent="center">
+      <StyledImage
+        height="260px"
+        width="260px"
+        source={uri ? {uri} : images.avatar}
+      />
+      <AbsoluteTouchableOpacity onPress={onPress}>
+        <StyledImage height="54px" width="54px" source={images.addButton} />
+      </AbsoluteTouchableOpacity>
+    </FlexedView>
   );
-}
-
-const styles = StyleSheet.create({
-  imageBackground: {
-    flex: 1,
-  },
-  avatar: {
-    alignItems: 'center',
-    marginTop: '40%',
-  },
-  avatarImage: {
-    height: 260,
-    width: 260,
-    overflow: 'hidden',
-    borderColor: '#ffffff',
-    borderWidth: 4,
-    borderRadius: 260 / 2,
-  },
-  addButton: {
-    height: 54,
-    width: 54,
-    backgroundColor: '#f2f2fC',
-    borderRadius: 50,
-    position: 'absolute',
-    right: 104,
-    bottom: 40,
-  },
-  addButtonIcon: {
-    height: 54,
-    width: 54,
-  },
-  usernameText: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#ffffff',
-    marginTop: 12,
-  },
-});
+};

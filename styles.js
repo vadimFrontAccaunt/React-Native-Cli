@@ -31,6 +31,7 @@ export const FlexedView = styled.View.attrs(props => ({
   width: props.width || 'auto',
   alignItems: props.alignItems || 'center',
   justifyContent: props.justifyContent || 'space-between',
+  BG: props.bg || 'transapent',
 }))`
   margin-left: ${props => props.marginL};
   margin-right: ${props => props.marginR};
@@ -41,6 +42,7 @@ export const FlexedView = styled.View.attrs(props => ({
   justify-content:${props => props.justifyContent};
   align-items:${props => props.alignItems};
   flex-wrap:wrap;
+  background-color:${props => props.bg}
 `;
 
 export const BorderedText = styled.Text.attrs(props => ({
@@ -100,4 +102,20 @@ export const PreView = styled.View`
   justify-content: center;
   align-items: center;
   margin-top: 15px;
+`;
+
+export const AbsoluteTouchableOpacity = styled.TouchableOpacity`
+  height: 54px;
+  width: 54px;
+  background-color: #f2f2fc;
+  border-radius: 50px;
+  position: absolute;
+  right: 104px;
+  bottom: 40px;
+`;
+
+export const StyledPressable = styled.Pressable`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;

@@ -6,6 +6,14 @@ export const StyledText = styled.Text.attrs(props => ({
   color: red;
 `;
 
+export const HeightWidthView = styled.View.attrs(props => ({
+  height: props.height || 'auto',
+  width: props.width || 'auto',
+}))`
+  height: ${props => props.height};
+  width: ${props => props.width};
+`;
+
 export const MarginView = styled.View.attrs(props => ({
   marginL: props.marginL || '0px',
   marginR: props.marginR || '0px',
@@ -32,6 +40,7 @@ export const FlexedView = styled.View.attrs(props => ({
   flex-direction: row;
   justify-content:${props => props.justifyContent};
   align-items:${props => props.alignItems};
+  flex-wrap:wrap;
 `;
 
 export const BorderedText = styled.Text.attrs(props => ({
@@ -73,11 +82,22 @@ export const BorderedInput = styled.TextInput`
 
 export const TextElementOfMenu = styled.Text.attrs(props => ({
   paddingT: props.paddingT || '0px',
+  marginT: props.marginT || '0px',
 }))`
-  padding-top:${props => props.paddingT}
+  padding-top: ${props => props.paddingT};
+  margin-top: ${props => props.marginT};
   font-size: 18px;
   border-width: 1px;
   height: 60px;
   width: 100px;
   text-align: center;
+`;
+
+export const PreView = styled.View`
+  width: 100%;
+  height: 114px;
+  background-color: #f8f8f8;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
 `;

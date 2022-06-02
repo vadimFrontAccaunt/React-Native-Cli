@@ -1,20 +1,37 @@
-import {View, Text, Pressable, ScrollView, SafeAreaView} from 'react-native';
-import React, {useContext} from 'react';
+import {
+  View,
+  Text,
+  Pressable,
+  ScrollView,
+  SafeAreaView,
+  Button,
+} from 'react-native';
+import React, {useContext, useState} from 'react';
 import {useSelector} from 'react-redux';
 import ElementOfCartoon from './ElementOfCartoon';
 import {Context} from '../../redux/Context';
 import {FlexedView, TextElementOfMenu} from '../../styles';
 import Chart from '../ChartBar/Chart';
 import RandomScreen from '../RandomScreen/RandomScreen';
+import Modal from 'react-native-modal';
 
 export const MainScreen = ({navigation}) => {
   const state = useSelector(state => state.cartoons);
   const [context, setContext] = useContext(Context);
+  const [modalWindow, setModalWindow] = useState(false);
   const setLanguage = () => {
     setContext(!context);
   };
   const LoginScreenF = () => {
     navigation.navigate('LoginPage');
+  };
+
+  const showModalWindow = () => {
+    setModalWindow(!modalWindow);
+  };
+
+  const showBrowser = () => {
+    navigation.navigate('Browser');
   };
 
   const SignScreen = () => {
@@ -85,6 +102,31 @@ export const MainScreen = ({navigation}) => {
               <TextElementOfMenu paddingT="15px">Подпись</TextElementOfMenu>
             )}
           </Pressable>
+          <Pressable onPress={showModalWindow}>
+            {context ? (
+              <TextElementOfMenu marginT="30px" paddingT="15px">
+                Modal
+              </TextElementOfMenu>
+            ) : (
+              <TextElementOfMenu marginT="30px" paddingT="5px">
+                Модальное окно
+              </TextElementOfMenu>
+            )}
+          </Pressable>
+          <Pressable onPress={showBrowser}>
+            {context ? (
+              <TextElementOfMenu marginT="30px" paddingT="15px">
+                Browser
+              </TextElementOfMenu>
+            ) : (
+              <TextElementOfMenu marginT="30px" paddingT="15px">
+                Браузер
+              </TextElementOfMenu>
+            )}
+          </Pressable>
+          <Modal isVisible={modalWindow}>
+            <Button title="Hide modal" onPress={showModalWindow} />
+          </Modal>
         </FlexedView>
       </ScrollView>
     </SafeAreaView>

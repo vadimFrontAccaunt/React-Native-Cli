@@ -16,6 +16,7 @@ import {store} from './redux/store';
 import LoginScreen from './src/LoginScreen/LoginScreen';
 import {MainScreen} from './src/MainScreen/MainScreen';
 import {ThecondScreen} from './src/MainScreen/ThecondScreen';
+import {Sign} from './src/SignatureScreen/SignatureScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ const App = () => {
             <Stack.Screen name="MainPage" component={MainScreen} />
             <Stack.Screen name="ThecondPage" component={ThecondScreen} />
             <Stack.Screen name="LoginPage" component={LoginScreen} />
+            <Stack.Screen name="Sign" component={Sign} />
           </Stack.Navigator>
         </NavigationContainer>
       </Context.Provider>

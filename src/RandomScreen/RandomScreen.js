@@ -1,6 +1,7 @@
 import {Text, View} from 'react-native';
 import React, {useState, useEffect, useContext} from 'react';
 import {Context} from '../../redux/Context';
+import {BorderedText} from '../../styles';
 
 const RandomScreen = () => {
   const [randomNumber, setRandomNumber] = useState(0);
@@ -24,21 +25,17 @@ const RandomScreen = () => {
   return (
     <View>
       {context ? (
-        <Text style={{textAlign: 'center', fontSize: 24, marginTop: 30}}>
-          Random Number
-        </Text>
+        <BorderedText>Random Number</BorderedText>
       ) : (
-        <Text style={{textAlign: 'center', fontSize: 24, marginTop: 30}}>
-          Случайное Число
-        </Text>
+        <BorderedText>Случайное Число</BorderedText>
       )}
-      <Text style={{textAlign: 'center', fontSize: 24, marginTop: 10}}>
+      <BorderedText>
         {statusError ? (
-          <Text>{context ? 'Error' : 'Ошибка'}</Text>
+          <BorderedText>{context ? 'Error' : 'Ошибка'}</BorderedText>
         ) : (
           randomNumber
         )}
-      </Text>
+      </BorderedText>
     </View>
   );
 };

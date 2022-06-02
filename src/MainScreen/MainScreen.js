@@ -17,6 +17,10 @@ export const MainScreen = ({navigation}) => {
     navigation.navigate('LoginPage');
   };
 
+  const SignScreen = () => {
+    navigation.navigate('Sign');
+  };
+
   let empty;
   if (state.length === 0) {
     empty = false;
@@ -72,6 +76,13 @@ export const MainScreen = ({navigation}) => {
               <TextElementOfMenu paddingT="15px">Login</TextElementOfMenu>
             ) : (
               <TextElementOfMenu paddingT="15px">Логин</TextElementOfMenu>
+            )}
+          </Pressable>
+          <Pressable onPress={SignScreen}>
+            {context ? (
+              <TextElementOfMenu paddingT="15px">Sign</TextElementOfMenu>
+            ) : (
+              <TextElementOfMenu paddingT="15px">Подпись</TextElementOfMenu>
             )}
           </Pressable>
         </FlexedView>
